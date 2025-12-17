@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resilient-aging"
+version = "0.1.0"
+description = "Identify resilient agers from OMOP CDM data based on disease-free survival beyond population thresholds"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Resilient Aging Team"}
+]
+keywords = ["omop", "cdm", "aging", "epidemiology", "phenotyping"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "sqlalchemy>=2.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "click>=8.0",
+    "pyyaml>=6.0",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+postgres = [
+    "psycopg2-binary>=2.9",
+]
+
+[project.scripts]
+resilient-aging = "resilient_aging.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["resilient_aging*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
