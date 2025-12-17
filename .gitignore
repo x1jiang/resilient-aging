@@ -40,15 +40,15 @@ htmlcov/
 .tox/
 .nox/
 
-# Data files (generated)
-*.db
-*.sqlite
-*.sqlite3
+# OS files
+.DS_Store
+Thumbs.db
 
-# Output files
-plots/
-exports/
-*.csv
+# Keep sample data for demonstration
+# (remove these lines if you don't want data files tracked)
+# *.db
+# plots/
+# *.csv
 
 # OS files
 .DS_Store
